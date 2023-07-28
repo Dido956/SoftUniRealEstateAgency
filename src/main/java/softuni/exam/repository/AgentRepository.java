@@ -10,4 +10,5 @@ public interface AgentRepository extends JpaRepository<Agent, Long> {
 
     boolean existsByFirstName(String firstName);
 
+    Agent findByFirstName(String name);
 }

@@ -8,13 +8,13 @@ public class Constants {
 
     //XML
     public static final String APARTMENTS_FILE_PATH = "src/main/resources/files/xml/apartments.xml";
-    public static final String OFFERS_FILE_PATH = "src/main/resources/files/xml/offers.json";
+    public static final String OFFERS_FILE_PATH = "src/main/resources/files/xml/offers.xml";
 
     //STRING FORMAT
     public static final String SUCCESSFULLY_IMPORTED_TOWN = "Successfully imported town %s - %d";
     public static final String SUCCESSFULLY_IMPORTED_AGENT = "Successfully imported agent - %s %s";
     public static final String SUCCESSFULLY_IMPORTED_APARTMENT = "Successfully imported apartment %s - %.2f";
-    public static final String SUCCESSFULLY_IMPORTED_OFFER = "Successfully imported offer %s - %.2f";
+    public static final String SUCCESSFULLY_IMPORTED_OFFER = "Successfully imported offer %.2f";
 
     // INVALID FORMAT
     public static final String INVALID = "Invalid %s";
