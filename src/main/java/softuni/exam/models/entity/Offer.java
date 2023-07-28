@@ -55,4 +55,19 @@ public class Offer extends BaseEntity {
     public void setApartment(Apartment apartment) {
         this.apartment = apartment;
     }
+
+
+    @Override
+    public String toString() {
+        return String.format("""
+                        Agent %s %s with offer №%d:
+                        \t-Apartment area: %.2f
+                        \t--Town: %s
+                        \t---Price:%.2f$
+                        """,
+                agent.getFirstName(), agent.getLastName(), getId(),
+                apartment.getArea(),
+                apartment.getTown().getTownName(),
+                price);
+    }
 }

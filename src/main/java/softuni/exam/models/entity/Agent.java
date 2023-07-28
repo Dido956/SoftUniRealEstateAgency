@@ -2,7 +2,9 @@ package softuni.exam.models.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import java.util.List;
 
 @Entity(name = "agents")
 public class Agent extends BaseEntity {
@@ -18,6 +20,12 @@ public class Agent extends BaseEntity {
 
     @ManyToOne
     private Town town;
+
+    @ManyToMany
+    private List<Apartment> apartments;
+
+    @ManyToMany
+    private List<Offer> offers;
 
     public Agent() {
     }
@@ -52,5 +60,21 @@ public class Agent extends BaseEntity {
 
     public void setTown(Town town) {
         this.town = town;
+    }
+
+    public List<Apartment> getApartments() {
+        return apartments;
+    }
+
+    public void setApartments(List<Apartment> apartments) {
+        this.apartments = apartments;
+    }
+
+    public List<Offer> getOffers() {
+        return offers;
+    }
+
+    public void setOffers(List<Offer> offers) {
+        this.offers = offers;
     }
 }

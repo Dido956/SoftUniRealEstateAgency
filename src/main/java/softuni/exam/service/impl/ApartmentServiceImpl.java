@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import softuni.exam.models.dto.xml.ApartmentsRootSeedDto;
 import softuni.exam.models.entity.Apartment;
 import softuni.exam.models.entity.Town;
+import softuni.exam.repository.AgentRepository;
 import softuni.exam.repository.ApartmentRepository;
 import softuni.exam.repository.TownRepository;
 import softuni.exam.service.ApartmentService;
@@ -22,6 +23,7 @@ import static softuni.exam.util.Constants.*;
 public class ApartmentServiceImpl implements ApartmentService {
     private ApartmentRepository apartmentRepository;
     private TownRepository townRepository;
+    private AgentRepository agentRepository;
     private ValidationUtil validationUtil;
     private ModelMapper modelMapper;
     private XmlParser xmlParser;
@@ -78,6 +80,7 @@ public class ApartmentServiceImpl implements ApartmentService {
     }
 
     private boolean findByTownNameAndArea(String town, Double area) {
-        return apartmentRepository.existsByTownTownNameAndArea(town, area);
+        return apartmentRepository.existsByTownTownNameAndArea(town,area);
     }
+
 }

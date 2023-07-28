@@ -2,6 +2,7 @@ package softuni.exam.service.impl;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+import softuni.exam.models.ApartmentType;
 import softuni.exam.models.dto.xml.OffersRootSeedDto;
 import softuni.exam.models.entity.Offer;
 import softuni.exam.repository.AgentRepository;
@@ -60,8 +61,8 @@ public class OfferServiceImpl implements OfferService {
                             && agentRepository.existsByFirstName(offerSeedDto.getAgent().getName());
 
                     sb.append(isValid
-                            ? String.format(SUCCESSFULLY_IMPORTED_OFFER, offerSeedDto.getPrice())
-                            : String.format(INVALID,OFFER))
+                                    ? String.format(SUCCESSFULLY_IMPORTED_OFFER, offerSeedDto.getPrice())
+                                    : String.format(INVALID, OFFER))
                             .append(System.lineSeparator());
 
                     return isValid;
@@ -83,6 +84,12 @@ public class OfferServiceImpl implements OfferService {
 
     @Override
     public String exportOffers() {
-        return null;
+        StringBuilder sb = new StringBuilder();
+                offerRepository.findAllByApartment_ApartmentTypeOrderByApartment_AreaDescPriceAsc(ApartmentType.three_rooms)
+                        .forEach(offer -> {
+                                sb.append(offer.toString());
+                        });
+                return sb.toString();
+
     }
 }
